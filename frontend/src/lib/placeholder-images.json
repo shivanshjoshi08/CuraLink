@@ -1,0 +1,112 @@
+{
+  "placeholderImages": [
+    {
+      "id": "duolingo-style-hero",
+      "description": "A friendly, minimalist illustration of a doctor and patient collaborating, with abstract shapes.",
+      "imageUrl": "https://images.unsplash.com/photo-1739513261598-d1025613319b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxmcmllbmRseSUyMGlsbHVzdHJhdGlvbnxlbnwwfHx8fDE3NjE5MzYyMjB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "friendly illustration"
+    },
+    {
+      "id": "landing-hero",
+      "description": "Abstract medical illustration with blue and green tones",
+      "imageUrl": "https://images.unsplash.com/photo-1606206873764-fd15e242df52?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxtZWRpY2FsJTIwc2NpZW5jZXxlbnwwfHx8fDE3NjE5MzU5OTd8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "medical science"
+    },
+    {
+      "id": "landing-hero-2",
+      "description": "Friendly illustration of a doctor and patient collaborating with abstract shapes",
+      "imageUrl": "https://images.unsplash.com/photo-1526297003708-f5a1c2c9c6e7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxmcmllbmRseSUyMGlsbHVzdHJhdGlvbnxlbnwwfHx8fDE3NjE5MzYyMjB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "friendly illustration"
+    },
+    {
+      "id": "avatar-1",
+      "description": "Portrait of a smiling woman",
+      "imageUrl": "https://images.unsplash.com/photo-1719087358997-12957d0859e2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHx3b21hbiUyMHNtaWxpbmd8ZW58MHx8fHwxNzYxODg1MDQyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "woman smiling"
+    },
+    {
+      "id": "avatar-2",
+      "description": "Portrait of a man with glasses",
+      "imageUrl": "https://images.unsplash.com/photo-1612694790876-bec1383fbb40?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxtYW4lMjBnbGFzc2VzfGVufDB8fHx8MTc2MTkxODMyMXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "man glasses"
+    },
+    {
+      "id": "avatar-3",
+      "description": "Portrait of a researcher in a lab coat",
+      "imageUrl": "https://images.unsplash.com/photo-1707944745860-4615eb585a41?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxyZXNlYXJjaGVyJTIwbGFifGVufDB8fHx8MTc2MTkzMTM4Nnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "researcher lab"
+    },
+    {
+      "id": "avatar-4",
+      "description": "Portrait of a senior man",
+      "imageUrl": "https://images.unsplash.com/photo-1606817863280-26adec923b1a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxzZW5pb3IlMjBtYW58ZW58MHx8fHwxNzYxODY3MjMxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "senior man"
+    },
+    {
+      "id": "avatar-5",
+      "description": "Portrait of a female doctor",
+      "imageUrl": "https://images.unsplash.com/photo-1685022036259-04cf91a89af1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8ZmVtYWxlJTIwZG9jdG9yfGVufDB8fHx8MTc2MTg0MjE2NXww&ixlibrb-4.1.0&q=80&w=1080",
+      "imageHint": "female doctor"
+    },
+    {
+      "id": "avatar-6",
+      "description": "Portrait of a man in casual clothing",
+      "imageUrl": "https://images.unsplash.com/photo-1632737666951-fd42a85f5067?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxtYW4lMjBjYXN1YWx8ZW58MHx8fHwxNzYxOTMwMjczfDA&ixlibrb-4.1.0&q=80&w=1080",
+      "imageHint": "man casual"
+    },
+    {
+      "id": "avatar-7",
+      "description": "Portrait of a male doctor in a suit",
+      "imageUrl": "https://images.unsplash.com/photo-1622253692010-333f2da6031d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxtYWxlJTIwZG9jdG9yfGVufDB8fHx8MTc2MzMyNDYwNnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "male doctor"
+    },
+    {
+      "id": "avatar-8",
+      "description": "Portrait of a female researcher smiling",
+      "imageUrl": "https://images.unsplash.com/photo-1579684385127-1ef17079318f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxmZW1hbGUlMjBkb2N0b3J8ZW58MHx8fHwxNzYxODQyMTY1fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "female doctor"
+    },
+    {
+      "id": "avatar-researcher-testimonial",
+      "description": "Portrait of a male researcher smiling",
+      "imageUrl": "https://images.unsplash.com/photo-1576091160550-2173dba999ef?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxtYWxlJTIwZG9jdG9yfGVufDB8fHx8MTc2MzMyNDYwNnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "male doctor"
+    },
+    {
+      "id": "publication-1",
+      "description": "Microscope image",
+      "imageUrl": "https://images.unsplash.com/photo-1708450920240-bac999883e39?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8bWljcm9zY29wZSUyMGNlbGxzfGVufDB8fHx8MTc2MTg1MDM4NXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "microscope cells"
+    },
+    {
+      "id": "publication-2",
+      "description": "DNA helix structure",
+      "imageUrl": "https://images.unsplash.com/photo-1633167606207-d840b5070fc2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxkbmElMjBoZWxpeHxlbnwwfHx8fDE3NjE4MTExMDh8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "dna helix"
+    },
+    {
+      "id": "publication-3",
+      "description": "Person looking at brain scan",
+      "imageUrl": "https://images.unsplash.com/photo-1666214277657-e60f05c40b04?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxicmFpbiUyMHNjYW58ZW58MHx8fHwxNzYxOTMxMzg2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "brain scan"
+    },
+    {
+      "id": "trial-1",
+      "description": "A modern hospital building exterior",
+      "imageUrl": "https://images.unsplash.com/photo-1648501211075-11da197fb1fb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxtb2Rlcm4lMjBob3NwaXRhbHxlbnwwfHx8fDE3NjE4NDQyNDJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "modern hospital"
+    },
+    {
+      "id": "trial-3",
+      "description": "Lungs x-ray",
+      "imageUrl": "https://images.unsplash.com/photo-1743767587847-08c42b31cdec?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxsdW5ncyUyMHhyYXl8ZW58MHx8fHwxNzYxOTM1OTk2fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "lungs xray"
+    },
+    {
+      "id": "trial-4",
+      "description": "EKG heartbeat monitor",
+      "imageUrl": "https://images.unsplash.com/photo-1572996489084-bd293caab387?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxla2clMjBtb25pdG9yfGVufDB8fHx8MTc2MTkzNTk5Nnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "ekg monitor"
+    }
+  ]
+}
