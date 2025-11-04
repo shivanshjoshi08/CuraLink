@@ -16,14 +16,14 @@ type StoredUser = {
 
 export default function CreateForumPage() {
   const router = useRouter();
-  
+
   // State for the user
   const [user, setUser] = useState<StoredUser | null>(null);
-  
+
   // State for the form
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  
+
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -33,7 +33,7 @@ export default function CreateForumPage() {
     if (storedUserData) {
       const parsedUser: StoredUser = JSON.parse(storedUserData);
       setUser(parsedUser);
-      
+
       // PDF RULE: Only researchers can create forums
       if (parsedUser.role !== 'researcher') {
         router.push('/forums'); // Send patients back
@@ -52,7 +52,7 @@ export default function CreateForumPage() {
 
     try {
       // Call the 'createForum' endpoint
-      const response = await fetch(`http://localhost:8000/api/forums`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/forums`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

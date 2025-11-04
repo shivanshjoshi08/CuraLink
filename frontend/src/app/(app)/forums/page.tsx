@@ -39,7 +39,7 @@ export default function ForumsPage() {
     // 4. Fetch all forums (as before)
     const fetchAllForums = async () => {
       try {
-        const response = await fetch('http://localhost:8000/api/forums');
+        const response = await fetch('${process.env.NEXT_PUBLIC_API_URL}/api/forums');
         if (!response.ok) {
           throw new Error('Failed to fetch forums');
         }

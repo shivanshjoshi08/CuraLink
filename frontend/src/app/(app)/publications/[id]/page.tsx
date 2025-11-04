@@ -29,7 +29,7 @@ export default function PublicationPage() {
     if (id) {
       const fetchPublication = async () => {
         try {
-          const res = await fetch(`http://localhost:8000/api/publications/${id}`);
+          const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/publications/${id}`);
           if (!res.ok) throw new Error("Failed to fetch publication");
           const data = await res.json();
           setPublication(data);

@@ -71,7 +71,7 @@ export function TrialsManager({ userId, token }: TrialsManagerProps) {
     }
     setLoading(true);
     try {
-      const res = await fetch(`http://localhost:8000/api/trials/my-trials`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/trials/my-trials`, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       if (!res.ok) throw new Error("Failed to fetch your trials");
@@ -133,7 +133,7 @@ export function TrialsManager({ userId, token }: TrialsManagerProps) {
   const handleDelete = async (id: string) => { // <-- FIX 4: ID is a string
     if (!token) return;
     try {
-      const res = await fetch(`http://localhost:8000/api/trials/${id}`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/trials/${id}`, {
         method: 'DELETE',
         headers: { 'Authorization': `Bearer ${token}` }
       });
@@ -155,8 +155,8 @@ export function TrialsManager({ userId, token }: TrialsManagerProps) {
     setError(null);
 
     const url = isEditing
-      ? `http://localhost:8000/api/trials/${isEditing}` // UPDATE
-      : `http://localhost:8000/api/trials`;           // CREATE
+      ? `${process.env.NEXT_PUBLIC_API_URL}/api/trials/${isEditing}` // UPDATE
+      : `${process.env.NEXT_PUBLIC_API_URL}/api/trials`;           // CREATE
       
     const method = isEditing ? 'PUT' : 'POST';
 

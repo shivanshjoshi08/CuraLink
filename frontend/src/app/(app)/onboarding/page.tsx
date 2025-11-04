@@ -52,7 +52,7 @@ export default function OnboardingPage() {
     try {
       // 3. Call your existing 'updateUser' endpoint
       // It saves the data to the 'conditions' column (which we use for both)
-      const response = await fetch(`http://localhost:8000/api/users/`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/users/`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

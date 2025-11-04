@@ -54,7 +54,7 @@ export default function ForumPage() {
     if (id) {
       const fetchForumData = async () => {
         try {
-          const response = await fetch(`http://localhost:8000/api/forums/${id}`);
+          const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/forums/${id}`);
           if (!response.ok) {
             throw new Error('Failed to fetch forum data');
           }

@@ -56,7 +56,7 @@ export default function CreatePostPage() {
 
     try {
       // Call the 'createPost' endpoint
-      const response = await fetch(`http://localhost:8000/api/posts`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/posts`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

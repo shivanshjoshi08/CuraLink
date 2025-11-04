@@ -56,7 +56,7 @@ export function PublicationsManager({ userId }: PublicationsManagerProps) {
   const fetchPublications = async () => {
     setLoading(true);
     try {
-      const res = await fetch(`http://localhost:8000/api/publications/user/${userId}`);
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/publications/user/${userId}`);
       if (!res.ok) throw new Error("Failed to fetch publications");
       const data = await res.json();
       setPublications(data);
@@ -105,7 +105,7 @@ export function PublicationsManager({ userId }: PublicationsManagerProps) {
         return;
     }
     try {
-      const res = await fetch(`http://localhost:8000/api/publications/${id}`, {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/publications/${id}`, {
         method: 'DELETE',
         headers: { 'Authorization': `Bearer ${token}` }
       });
@@ -129,8 +129,8 @@ export function PublicationsManager({ userId }: PublicationsManagerProps) {
     setError(null);
 
     const url = isEditing
-      ? `http://localhost:8000/api/publications/${isEditing}` 
-      : `http://localhost:8000/api/publications`;           
+      ? `${process.env.NEXT_PUBLIC_API_URL}/api/publications/${isEditing}` 
+      : `${process.env.NEXT_PUBLIC_API_URL}/api/publications`;           
       
     const method = isEditing ? 'PUT' : 'POST';
 

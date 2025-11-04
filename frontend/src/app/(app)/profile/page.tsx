@@ -61,7 +61,7 @@ export default function ProfilePage() {
             }
 
             // Call the new secure DELETE endpoint
-            const response = await fetch(`http://localhost:8000/api/users/`, {
+            const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/users/`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',
@@ -138,7 +138,7 @@ export default function ProfilePage() {
             };
 
             // 4. Send the updated data to the correct URL: '/api/users/' (with no ID)
-            const response = await fetch(`http://localhost:8000/api/users/`, { // <-- URL IS FIXED
+            const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/users/`, { // <-- URL IS FIXED
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

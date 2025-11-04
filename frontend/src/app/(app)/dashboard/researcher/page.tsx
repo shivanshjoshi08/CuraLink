@@ -69,7 +69,7 @@ export default function ResearcherDashboard() {
       }
       
       try {
-        const response = await fetch('http://localhost:8000/api/users/dashboard-stats', {
+        const response = await fetch('${process.env.NEXT_PUBLIC_API_URL}/api/users/dashboard-stats', {
           headers: {
             'Authorization': `Bearer ${storedToken}`
           }

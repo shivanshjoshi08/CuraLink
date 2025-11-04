@@ -37,7 +37,7 @@ export default function SettingsPage() {
       }
 
       // Call the secure DELETE endpoint
-      const response = await fetch(`http://localhost:8000/api/users/`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/users/`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',

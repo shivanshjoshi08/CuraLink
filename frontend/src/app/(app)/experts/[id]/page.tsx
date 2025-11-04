@@ -46,7 +46,7 @@ export default function ResearcherProfilePage() {
         const fetchProfileData = async () => {
             try {
                 // Fetch researcher details
-                const resUser = await fetch(`http://localhost:8000/api/users/${id}`);
+                const resUser = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/users/${id}`);
                 if (!resUser.ok) throw new Error('Failed to fetch researcher');
                 const userData: Researcher = await resUser.json();
                 if (userData.role !== 'researcher') {
@@ -55,7 +55,7 @@ export default function ResearcherProfilePage() {
                 setResearcher(userData);
 
                 // Fetch researcher publications
-                const resPubs = await fetch(`http://localhost:8000/api/publications/user/${id}`);
+                const resPubs = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/publications/user/${id}`);
                 if (!resPubs.ok) throw new Error('Failed to fetch publications');
                 const pubsData: Publication[] = await resPubs.json();
                 setPublications(pubsData);

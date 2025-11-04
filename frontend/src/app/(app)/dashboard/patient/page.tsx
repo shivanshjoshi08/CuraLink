@@ -70,7 +70,7 @@ export default function PatientDashboard() {
     // Fetch Recommended Experts
     const fetchRecommendedExperts = async () => {
       try {
-        const response = await fetch('http://localhost:8000/api/users/recommended-experts', {
+        const response = await fetch('${process.env.NEXT_PUBLIC_API_URL}/api/users/recommended-experts', {
           headers: { 'Authorization': `Bearer ${token}` }
         });
         if (!response.ok) throw new Error('Failed to fetch experts');
@@ -85,7 +85,7 @@ export default function PatientDashboard() {
     // Fetch Recommended Publications
     const fetchRecommendedPublications = async () => {
       try {
-        const response = await fetch('http://localhost:8000/api/publications/recommended', {
+        const response = await fetch('${process.env.NEXT_PUBLIC_API_URL}/api/publications/recommended', {
           headers: { 'Authorization': `Bearer ${token}` }
         });
         if (!response.ok) throw new Error('Failed to fetch publications');
@@ -100,7 +100,7 @@ export default function PatientDashboard() {
     // Fetch Recommended Trials
     const fetchRecommendedTrials = async () => {
       try {
-        const response = await fetch('http://localhost:8000/api/trials/recommended', {
+        const response = await fetch('${process.env.NEXT_PUBLIC_API_URL}/api/trials/recommended', {
           headers: { 'Authorization': `Bearer ${token}` }
         });
         if (!response.ok) throw new Error('Failed to fetch trials');

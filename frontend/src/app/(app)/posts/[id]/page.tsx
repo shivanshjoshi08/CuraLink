@@ -59,7 +59,7 @@ export default function PostPage() {
     if (!id) return;
     try {
       setLoading(true);
-      const response = await fetch(`http://localhost:8000/api/posts/${id}`);
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/posts/${id}`);
       if (!response.ok) {
         throw new Error('Failed to fetch post data');
       }
@@ -93,7 +93,7 @@ export default function PostPage() {
     const token = localStorage.getItem('token');
 
     try {
-      const response = await fetch(`http://localhost:8000/api/posts/reply`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/posts/reply`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
