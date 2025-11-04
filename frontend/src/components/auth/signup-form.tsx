@@ -29,7 +29,7 @@ export function SignupForm() {
 
     try {
       // --- Step 1: Register the new user ---
-      const registerResponse = await fetch('${process.env.NEXT_PUBLIC_API_URL}/api/users/register', {
+      const registerResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/users/register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -48,7 +48,7 @@ export function SignupForm() {
       }
 
       // --- Step 2: Auto-Login the new user ---
-      const loginResponse = await fetch('${process.env.NEXT_PUBLIC_API_URL}/api/users/login', {
+      const loginResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/users/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -39,7 +39,7 @@ export default function AllPublicationsPage() {
 
     const fetchAllPublications = async () => {
       try {
-        const response = await fetch('${process.env.NEXT_PUBLIC_API_URL}/api/publications');
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/publications`);
         if (!response.ok) {
           throw new Error('Failed to fetch publications');
         }

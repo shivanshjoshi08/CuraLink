@@ -43,7 +43,7 @@ export default function ExpertsPage() {
     // 6. Fetch all researchers (as before)
     const fetchResearchers = async () => {
       try {
-        const response = await fetch('${process.env.NEXT_PUBLIC_API_URL}/api/users/researchers');
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/users/researchers`);
         if (!response.ok) {
           throw new Error('Failed to fetch experts');
         }

@@ -52,7 +52,7 @@ export default function ClinicalTrialsPage() {
 
     const fetchAllTrials = async () => {
       try {
-        const response = await fetch('${process.env.NEXT_PUBLIC_API_URL}/api/trials');
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/trials`);
         if (!response.ok) {
           throw new Error('Failed to fetch clinical trials');
         }
