@@ -160,11 +160,55 @@ const getRecommendedTrials = async (req, res) => {
   }
 };
 
+
+// --- Get a single trial by its ID (Public) ---
+// --- Get a single trial by its ID (Public) ---
+const getTrialById = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    // --- THIS IS THE FIX ---
+    // Use findById() to get a single document, not find()
+    const trial = await ClinicalTrial.findById(id)
+      .populate('researcher_id', 'name profile_picture_url conditions'); // Get author details
+
+    if (!trial) {
+      return res.status(404).json({ message: 'Trial not found' });
+    }
+
+    // --- END FIX ---
+
+    // Reformat data to send
+    const formattedTrial = {
+      id: trial._id,
+      title: trial.title,
+      description: trial.description,
+      status: trial.status,
+      eligibility: trial.eligibility,
+      location: trial.location,
+      contact_email: trial.contact_email,
+      researcher: {
+        id: trial.researcher_id._id,
+        name: trial.researcher_id.name,
+        profile_picture_url: trial.researcher_id.profile_picture_url,
+        specialties: trial.researcher_id.conditions
+      }
+    };
+
+    res.json(formattedTrial);
+
+  } catch (error) {
+    console.error('Error fetching trial:', error);
+    res.status(500).json({ message: 'Error fetching trial' });
+  }
+};
+
 module.exports = {
   createTrial,
   getAllTrials,
   getMyTrials,
   updateTrial,
   deleteTrial,
-  getRecommendedTrials
+  getRecommendedTrials,
+  getTrialById
 };

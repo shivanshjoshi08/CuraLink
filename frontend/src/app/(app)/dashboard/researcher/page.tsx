@@ -1,5 +1,5 @@
 "use client";
-
+import { useSearchParams } from 'next/navigation'; // <-- ADD THIS
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
@@ -56,7 +56,7 @@ export default function ResearcherDashboard() {
   useEffect(() => {
     const storedUserData = localStorage.getItem('user');
     const storedToken = localStorage.getItem('token');
-    
+
     if (storedUserData && storedToken) {
       setUser(JSON.parse(storedUserData));
       setToken(storedToken);
@@ -67,7 +67,7 @@ export default function ResearcherDashboard() {
         setLoading(false);
         return;
       }
-      
+
       try {
         const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/users/dashboard-stats`, {
           headers: {
@@ -181,7 +181,7 @@ export default function ResearcherDashboard() {
               </CardContent>
             </Card>
           </div>
-          
+
           {/* Collaborators & Forums */}
           <div className="grid gap-8 md:grid-cols-2">
             <Card>
@@ -250,7 +250,7 @@ export default function ResearcherDashboard() {
         <TabsContent value="publications">
           <PublicationsManager userId={user.id} />
         </TabsContent>
-        
+
         {/* --- TAB 3: My Clinical Trials --- */}
         <TabsContent value="trials">
           <TrialsManager userId={user.id} token={token} />

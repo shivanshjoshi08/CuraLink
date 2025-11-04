@@ -15,6 +15,7 @@ const publicationRoutes = require('./routes/publication.routes.js');
 const trialRoutes = require('./routes/trial.routes.js');
 const forumRoutes = require('./routes/forum.routes.js');
 const postRoutes = require('./routes/post.routes.js');
+const favoriteRoutes = require('./routes/favorite.routes.js');
 
 // Use all your routes
 app.use('/api/users', userRoutes);
@@ -22,11 +23,13 @@ app.use('/api/publications', publicationRoutes);
 app.use('/api/trials', trialRoutes);
 app.use('/api/forums', forumRoutes);
 app.use('/api/posts', postRoutes);
+app.use('/api/favorites', favoriteRoutes);
 
 // A simple test route
 app.get('/api', (req, res) => {
   res.json({ message: 'Welcome to the CuraLink API!' });
 });
+
 
 // Export the app to be used by server.js
 module.exports = app;

@@ -8,7 +8,8 @@ const {
   getMyTrials,
   updateTrial,
   deleteTrial,
-  getRecommendedTrials
+  getRecommendedTrials,
+  getTrialById
 } = require('../controllers/trial.controller');
 
 // GET /api/trials (Get all trials - Public for patients)
@@ -28,5 +29,7 @@ router.delete('/:id', authMiddleware, deleteTrial);
 
 // GET /api/trials/recommended (Get personalized trials)
 router.get('/recommended', authMiddleware, getRecommendedTrials); // <-- ADD THIS
+
+router.get('/:id', getTrialById);
 
 module.exports = router;

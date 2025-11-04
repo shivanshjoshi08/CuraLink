@@ -9,7 +9,7 @@ import { Label } from "@/components/ui/label";
 
 // Define the type for our user
 type StoredUser = {
-  id: number;
+  id: string;
   name: string;
   role: 'patient' | 'researcher';
 };
@@ -17,9 +17,11 @@ type StoredUser = {
 export default function OnboardingPage() {
   const router = useRouter();
   
+  // State for the user and their data fields
   const [user, setUser] = useState<StoredUser | null>(null);
-  // This one state will hold 'conditions' for patients OR 'specialties' for researchers
-  const [textInput, setTextInput] = useState(""); 
+  const [conditions, setConditions] = useState(""); // For conditions OR specialties
+  const [about, setAbout] = useState(""); // <-- NEW: For researcher's about section
+  
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -29,8 +31,8 @@ export default function OnboardingPage() {
     if (storedUserData) {
       const parsedUser: StoredUser = JSON.parse(storedUserData);
       setUser(parsedUser);
+      // We don't redirect researchers, we let them fill out this form
     } else {
-      // If no user, send to login
       router.push('/login');
     }
   }, [router]);
@@ -50,17 +52,21 @@ export default function OnboardingPage() {
     }
 
     try {
-      // 3. Call your existing 'updateUser' endpoint
-      // It saves the data to the 'conditions' column (which we use for both)
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/users/`, {
+      // 3. Prepare data to send (send both fields)
+      const dataToSend = {
+        conditions: conditions,
+        // Only send 'about' if the user is a researcher
+        about: user.role === 'researcher' ? about : undefined 
+      };
+
+      // Call the updateUser endpoint
+      const response = await fetch(`http://localhost:8000/api/users/`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`
         },
-        body: JSON.stringify({
-          conditions: textInput // Send the text (conditions OR specialties)
-        }),
+        body: JSON.stringify(dataToSend),
       });
 
       const data = await response.json();
@@ -69,7 +75,7 @@ export default function OnboardingPage() {
       }
 
       // 4. Update the user in localStorage
-      const updatedUser = data.user;
+      const updatedUser = { ...user, ...dataToSend };
       localStorage.setItem('user', JSON.stringify(updatedUser));
 
       // 5. Send them to their correct dashboard
@@ -90,18 +96,19 @@ export default function OnboardingPage() {
     }
   };
   
-  // --- 6. Dynamic Content for the UI ---
-  // This object holds the different text for each role
+  // 6. Dynamic Content for the UI
+  const isResearcher = user?.role === 'researcher';
+
   const content = {
-    description: user?.role === 'patient'
-      ? 'Please tell us about your medical conditions or interests so we can personalize your dashboard.'
-      : 'List your areas of expertise. This will help patients and other researchers find you.',
-    label: user?.role === 'patient'
-      ? 'What conditions are you interested in?'
-      : 'What are your specialties?',
-    placeholder: user?.role === 'patient'
-      ? 'e.g., I have Brain Cancer, Glioma, or I\'m interested in Lung Cancer...'
-      : 'e.g., Oncology, Neuroscience, Glioblastoma'
+    description: isResearcher
+      ? 'List your areas of expertise and provide a brief bio. This helps patients find you.'
+      : 'Please tell us about your medical conditions or interests so we can personalize your dashboard.',
+    label: isResearcher
+      ? 'What are your specialties?'
+      : 'What conditions are you interested in?',
+    placeholder: isResearcher
+      ? 'e.g., Oncology, Neuroscience, Glioblastoma'
+      : 'e.g., I have Brain Cancer, Glioma, or I\'m interested in Lung Cancer...'
   };
 
   // Show a loading screen while we check for the user
@@ -109,7 +116,7 @@ export default function OnboardingPage() {
     return <div className="flex items-center justify-center min-h-screen">Loading...</div>;
   }
 
-  // 7. Render the form
+  // 7. Render the final form
   return (
     <div className="flex items-center justify-center min-h-screen bg-muted/40">
       <Card className="w-full max-w-lg">
@@ -121,6 +128,7 @@ export default function OnboardingPage() {
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-4">
+            {/* 1. Specialties / Conditions Input */}
             <div className="space-y-2">
               <Label htmlFor="conditions">
                 {content.label}
@@ -129,13 +137,29 @@ export default function OnboardingPage() {
                 id="conditions"
                 placeholder={content.placeholder}
                 className="min-h-[100px]"
-                value={textInput}
-                onChange={(e) => setTextInput(e.target.value)}
+                value={conditions}
+                onChange={(e) => setConditions(e.target.value)}
               />
               <p className="text-xs text-muted-foreground">
                 Please separate multiple items with a comma.
               </p>
             </div>
+            
+            {/* 2. About Me Input (Researcher Only) */}
+            {isResearcher && (
+              <div className="space-y-2">
+                <Label htmlFor="about">
+                  About Me / Professional Bio
+                </Label>
+                <Textarea
+                  id="about"
+                  placeholder="e.g., I am an immunologist specializing in novel therapies for NSCLC. My lab is based in Mumbai."
+                  className="min-h-[150px]"
+                  value={about}
+                  onChange={(e) => setAbout(e.target.value)}
+                />
+              </div>
+            )}
             
             {error && <p className="text-red-500 text-sm">{error}</p>}
             
